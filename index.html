@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sacramento&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      color: #333;
+      background-color: #fff;
+    }
+
+    /* Header / Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background-color: #f3ebf9;
+    }
+
+    .logo {
+      font-family: 'Sacramento', cursive;
+      font-size: 28px;
+      font-weight: bold;
+      color: #4a235a;
+    }
+
+    .logo span {
+      color: #7d3c98;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a.active, nav ul li a:hover {
+      background-color: #e8d8f0;
+      padding: 6px 16px;
+      border-radius: 20px;
+      color: #4a235a;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 8%;
+      background-color: #f3ebf9;
+    }
+
+    .hero-text {
+      max-width: 50%;
+    }
+
+    .hero-text h3 {
+      font-weight: 400;
+      color: #555;
+      font-size: 20px;
+    }
+
+    .hero-text h1 {
+      font-family: 'Sacramento', cursive;
+      font-size: 58px;
+      color: #5b2c6f;
+      margin: 5px 0 15px 0;
+    }
+
+    .hero-text p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      font-size: 15px;
+    }
+
+    .btn-explore {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #5b2c6f;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .btn-explore:hover {
+      background-color: #4a235a;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .img-wrapper {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 8px solid #fbdbe0;
+    }
+
+    .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Section Heading Component */
+    .section-title {
+      font-size: 26px;
+      color: #2c3e50;
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background-color: #d7bde2;
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    .about {
+      padding: 60px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-content p {
+      color: #555;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .about-card {
+      flex: 0.8;
+      background-color: #f7f0fa;
+      padding: 30px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .info-item i {
+      font-size: 20px;
+      color: #5b2c6f;
+      width: 25px;
+    }
+
+    .info-item h4 {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 2px;
+    }
+
+    .info-item p {
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* Skills Section */
+    .skills {
+      padding: 60px 8%;
+      background-color: #fbf7fd;
+    }
+
+    .skills-grid {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .skill-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .icon-box {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .bg-orange { background-color: #ffe8d6; color: #e44d26; }
+    .bg-blue { background-color: #e0f2fe; color: #264de4; }
+    .bg-teal { background-color: #d1fafe; color: #00d8ff; }
+    .bg-purple { background-color: #f3e8ff; color: #7e22ce; }
+
+    .skill-card h4 {
+      font-size: 15px;
+      color: #333;
+    }
+
+    .skill-card p {
+      font-size: 12px;
+      color: #777;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 50px 8%;
+    }
+
+    .contact-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      background: #fff;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .contact-item i {
+      background-color: #f3e8ff;
+      color: #5b2c6f;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 14px;
+    }
+
+    .btn-send {
+      padding: 12px 25px;
+      background-color: #5b2c6f;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f3ebf9;
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="logo">My Portfolio <span>♥️</span></div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="skill.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h3>Hello, I'm</h3>
+      <h1>SWETA</h1>
+      <p>A passionate learner and aspiring web developer. I love creating simple and beautiful websites.</p>
+      <a href="explore.html" class="btn-explore">Explore More &rarr;</a>
+    </div>
+
+    <div class="hero-image">
+      <div class="img-wrapper">
+        <!-- Apni photo ka link yahan lagayein -->
+        <img src="./sweta.png" alt="Profile Picture">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="about-content">
+      <h2 class="section-title">About Me</h2>
+      <p>Hi! I'm a beginner web developer who is excited to learn and grow. I enjoy exploring new technologies, designing simple websites and improving my skills every day. I believe in hard work and consistency.</p>
+    </div>
+    <div class="about-card">
+      <div class="info-item">
+        <i class="fa-regular fa-user"></i>
+        <div>
+          <h4>Name</h4>
+          <p>SWETA</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <div>
+          <h4>Education</h4>
+          <p>12th Pass</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+          <h4>Location</h4>
+          <p>NOIDA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="icon-box bg-orange"><i class="fa-brands fa-html5"></i></div>
+        <h4>HTML</h4>
+      </div>
+      <div class="skill-card">
+        <div class="icon-box bg-blue"><i class="fa-brands fa-css3-alt"></i></div>
+        <h4>CSS</h4>
+      </div>
+      <div class="skill-card">
+        <div class="icon-box bg-teal"><i class="fa-solid fa-desktop"></i></div>
+        <h4>Basic JavaScript</h4>
+        <p>(Learning)</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon-box bg-purple"><i class="fa-solid fa-gear"></i></div>
+        <h4>Problem Solving</h4>
+        <p>(Building)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-container">
+      <div class="contact-item">
+        <i class="fa-regular fa-envelope"></i>
+        <span>SWETA545@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fa-solid fa-phone"></i>
+        <span>+91 98765 43210</span>
+      </div>
+      <div class="contact-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>NOIDA</span>
+      </div>
+      <button class="btn-send"><i class="fa-regular fa-paper-plane"></i> Send Message</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
